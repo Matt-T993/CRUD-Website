@@ -5,15 +5,13 @@ import { MdOutlineAddCircle } from "react-icons/md";
 const Note = ({ note, handleDeleteNote, handleUpdateNote }) => {
   return (
     <div className="note">
-      <div className="note-top">
-        <span>{note.text}</span>
+      <span className="text">{note.text}</span>
+      <div className="note-footer">
+        <small>{note.date}</small>
         <MdOutlineAddCircle
           className="update"
           onClick={() => handleUpdateNote(note.id)}
         />
-      </div>
-      <div className="note-footer">
-        <small>{note.date}</small>
         <TiDelete
           onClick={() => handleDeleteNote(note.id)}
           className="delete"
