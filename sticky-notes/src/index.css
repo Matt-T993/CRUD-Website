@@ -62,14 +62,11 @@ textarea:focus {
   justify-content: space-between;
   white-space: pre-wrap;
 }
-.note-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
+
 .note-footer {
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 .delete {
@@ -82,6 +79,7 @@ textarea:focus {
 
 .update {
   cursor: pointer;
+  margin-left: 150px;
 }
 .update:hover {
   color: rgb(0, 4, 255);

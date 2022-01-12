@@ -1,0 +1,23 @@
+{
+  "notes": [
+    {
+      "text": "i want to update file",
+      "date": "08/01/2022",
+      "id": 1
+    },
+    {
+      "text": "check this out",
+      "date": "08/01/2022",
+      "id": 2
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "firstName": "Zoey",
+      "lastName": "Dog",
+      "email": "zoey@gmail.com",
+      "password": "word"
+    }
+  ]
+}

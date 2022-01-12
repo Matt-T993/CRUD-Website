@@ -1,29 +1,19 @@
 {
-  "notes": [
+  "posts": [
     {
-      "id": 2,
-      "text": "hello second",
-      "date": "15/12/2021"
-    },
-    {
-      "text": "fdgdfgd",
-      "date": "06/01/2022",
-      "id": 3
-    },
-    {
-      "text": "rrrrr",
-      "date": "06/01/2022",
-      "id": 5
-    },
-    {
-      "text": "fix problem tomorrow ",
-      "date": "06/01/2022",
-      "id": 6
-    },
-    {
-      "text": "f",
-      "date": "06/01/2022",
-      "id": 7
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
     }
-  ]
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
 }
