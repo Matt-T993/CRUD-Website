@@ -1,4 +1,7 @@
 const router = require("express").Router();
+const fs = require("fs");
+const rawData = fs.readFileSync("server/db.json");
+const data = JSON.parse(rawData);
 
 router.get("/", async (req, res) => {
   res.json(data.notes);
