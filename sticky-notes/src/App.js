@@ -1,21 +1,28 @@
 import { useState } from "react";
 import "./index.css";
 import StickyNotes from "./pages/StickyNotes";
-import Login from "./pages/login/Login";
-import Header from "./components/Header";
-import Register from "./pages/login/Register";
+import Navbar from "./components/NavBar";
+
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
 
 const App = () => {
-  const [user, setUser] = useState([]);
-  const [darkMode, setDarkMode] = useState(false);
+  const [notes, setNotes] = useState([]);
+  const [noteText, setNoteText] = useState("");
+  const [editText, setEditText] = useState("");
+
   return (
-    <div className={`${darkMode && "dark-mode"}`}>
-      <div className="container">
-        <Header ToggleDarkMode={setDarkMode} />
-        {/* <Register /> */}
-        {/* <Login user={user} setUser={setUser} /> */}
-        <StickyNotes />
-      </div>
+    <div className="container">
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route
+            path="/note"
+            element={<StickyNotes notes={notes} setNotes={setNotes} />}
+          />
+        </Routes>
+      </Router>
     </div>
   );
 };

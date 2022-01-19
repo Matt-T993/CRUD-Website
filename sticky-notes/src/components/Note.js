@@ -1,19 +1,20 @@
 import React from "react";
 import { TiDelete } from "react-icons/ti";
 import { MdOutlineAddCircle } from "react-icons/md";
+import "../index.css";
 
-const Note = ({ note, handleDeleteNote, handleUpdateNote }) => {
+const Note = ({ id, text, date, handleDeleteNote, handleUpdateNote }) => {
   return (
     <div className="note">
-      <span className="text">{note.text}</span>
+      <span className="text">{text}</span>
       <div className="note-footer">
-        <small>{note.date}</small>
+        <small>{date}</small>
         <MdOutlineAddCircle
           className="update"
-          onClick={() => handleUpdateNote(note.id)}
+          onClick={() => handleUpdateNote(id)}
         />
         <TiDelete
-          onClick={() => handleDeleteNote(note.id)}
+          onClick={() => handleDeleteNote(id)}
           className="delete"
           size="1.3em"
         />

@@ -3,34 +3,26 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import NoteList from "../components/NoteList";
 //import Search from "./components/Search";
+import notesService from "../services/notes";
 
 const StickyNotes = () => {
   const [notes, setNotes] = useState([]);
 
-  const [isEditing, setIsEditing] = useState(false);
-  const [editID, setEditID] = useState(null);
-
+  //get all sticky notes
   useEffect(() => {
-    axios.get("http://localhost:3001/api/notes").then((response) => {
-      console.log("response: ", response);
-      setNotes(response.data);
+    notesService.getAll().then((objects) => {
+      setNotes(objects);
     });
   }, []);
-
   //adds a sticky note
   const addNewNotes = (newNotes) => {
-    axios.post("http://localhost:3001/api/notes", newNotes).then((response) => {
-      console.log("POST response", response);
-
-      setNotes([...notes, response.data]);
+    notesService.create(newNotes).then((object) => {
+      setNotes([...notes, object]);
     });
   };
   //delete a sticky notes
   const deleteNote = (id) => {
-    console.log("delete", id);
-    axios.delete(`http://localhost:3001/api/notes/${id}`).then((response) => {
-      console.log("delete succeeded");
-      //delete local copy
+    notesService.del(id).then((object) => {
       const newNotes = notes.filter((u) => u.id !== id);
       setNotes(newNotes);
     });
@@ -39,8 +31,6 @@ const StickyNotes = () => {
   const updateNote = (id) => {
     console.log("update", id);
     axios.put(`http://localhost:3001/api/notes/${id}`).then((response) => {
-      setIsEditing(true);
-      setEditID(id);
       setNotes(notes);
       console.log("update succeeded");
     });
@@ -54,8 +44,6 @@ const StickyNotes = () => {
         notes={notes}
         handleDeleteNote={deleteNote}
         handleAddNote={addNewNotes}
-        handleEditing={isEditing}
-        handleEditID={editID}
         handleUpdateNote={updateNote}
       />
 

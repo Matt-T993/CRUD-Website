@@ -7,7 +7,7 @@ const Navbar = () => {
       <div className="header">
         <h1>Sticky notes</h1>
         <div className="logo">
-          <img className="img-logo" src="assets/logo.jpg" />
+          <img className="img-logo" src="assets/logo.jpg" alt="logo" />
         </div>
         <nav className="nav-menu">
           <Link to="/" className="nav-link">
